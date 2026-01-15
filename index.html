@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mono no Aware | Archive</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;700&family=Space+Mono:ital,wght@0,400;0,700;1,400&family=Syncopate:wght@400;700&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div class="loader">
+        <div class="loader-text">LOADING ARCHIVE... <span style="color:var(--red)">//</span></div>
+    </div>
+
+    <div class="fixed-ui">
+        <div class="logo">PROJECT: 記憶</div>
+        <div class="scroll-indicator">SCROLL TO DISCOVER ↓</div>
+        <div class="line-left"></div>
+        <div class="line-right"></div>
+    </div>
+
+    <main>
+        <section class="hero-section" data-bgcolor="#ffffff">
+            <div class="hero-content">
+                <div class="jap-vertical">未知の女子高生</div>
+                <h1 class="glitch-text">
+                    <span class="line">UNKNOWN</span><br>
+                    <span class="line indent">SCHOOLGIRL</span>
+                </h1>
+                <div class="meta-data">
+                    <p>OBJ: #404-B</p>
+                    <p>LOC: TOKYO, JP</p>
+                    <p>DATE: 199X</p>
+                </div>
+            </div>
+            <div class="red-sun"></div>
+        </section>
+
+        <section class="artifact-section" data-bgcolor="#f4f4f4">
+            <div class="grid-container">
+                <div class="text-block">
+                    <h2 class="section-title">THE<br><span style="color:var(--red)">EVIDENCE</span></h2>
+                    <p class="body-text">
+                        Найденный объект. Эмульсия хранит следы времени. 
+                        Мы смотрим на лица, которые никогда не увидим вживую.
+                        <br><br>
+                        <span class="mono-small">SCANNING... [OK]</span>
+                    </p>
+                </div>
+                
+                <div class="image-wrapper reveal-image">
+                    <img src="img/photo1.jpg" alt="School Class Photo" class="main-photo">
+                    <div class="overlay-scanlines"></div>
+                    <div class="red-frame"></div>
+                </div>
+            </div>
+        </section>
+
+        <section class="gaze-section" data-bgcolor="#1a1a1a"> <div class="parallax-container">
+                <div class="floating-text jap-big">
+                    誰ですか
+                </div>
+                
+                <div class="photo-cluster">
+                    <div class="photo-back parallax-fast">
+                        <img src="img/photo1.jpg" style="filter: brightness(0.5) blur(2px);">
+                    </div>
+                    
+                    <div class="photo-front parallax-slow">
+                        <img src="img/photo2.jpg" alt="Girls Close up">
+                        <div class="label-tag">TARGET ID: UNKNOWN</div>
+                    </div>
+                </div>
+
+                <div class="final-text">
+                    <h2>THE GAZE</h2>
+                </div>
+            </div>
+        </section>
+        
+        <section class="footer-stub">
+            <p>TO BE CONTINUED...</p>
+        </section>
+    </main>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
