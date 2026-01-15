@@ -158,3 +158,112 @@ h1 {
     height: 50vh; display: flex; justify-content: center; align-items: center;
     background: var(--black); color: var(--gray);
 }
+/* --- HORIZONTAL SECTION --- */
+.horizontal-wrapper {
+    width: 100%;
+    height: 100vh;
+    overflow: hidden; /* Скрываем то, что вылезает за экран */
+    background-color: var(--white);
+    position: relative;
+    padding: 0; /* Убираем стандартные отступы секций */
+}
+
+.horizontal-container {
+    display: flex; /* Выстраиваем панели в ряд */
+    width: 300vw; /* 3 панели по 100vw шириной */
+    height: 100%;
+}
+
+.panel {
+    width: 100vw;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 4rem;
+    position: relative;
+    border-right: 1px solid var(--black);
+}
+
+/* Стили панели 1 (Текст) */
+.panel-text {
+    background-color: var(--white);
+    color: var(--black);
+}
+.huge-text {
+    font-family: var(--font-head);
+    font-size: 6rem;
+    line-height: 0.9;
+    margin-bottom: 2rem;
+}
+.outlined-text {
+    color: transparent;
+    -webkit-text-stroke: 2px var(--black);
+}
+.vertical-line {
+    position: absolute; top: 0; left: 2rem; height: 100%; width: 2px; background: var(--red);
+}
+
+/* Стили панели 2 (Картинка) */
+.panel-img {
+    background-color: var(--black);
+    align-items: center;
+    overflow: hidden;
+}
+.img-crop-container {
+    width: 60vw;
+    height: 70vh;
+    overflow: hidden;
+    position: relative;
+    border: 2px solid var(--white);
+}
+.zoomed-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    /* Увеличиваем фото и сдвигаем, чтобы показать эмоции */
+    transform: scale(1.5); 
+    filter: grayscale(100%) contrast(110%);
+}
+.floating-sticker {
+    position: absolute; bottom: 0; right: 0;
+    background: var(--red); color: var(--white);
+    padding: 1rem; font-family: var(--font-body);
+    font-weight: bold;
+}
+
+/* Стили панели 3 (Цитата) */
+.panel-quote {
+    background-color: #e0e0e0; /* Светло-серый */
+    align-items: center;
+    text-align: center;
+    overflow: hidden;
+}
+.quote {
+    font-family: var(--font-head);
+    font-size: 4rem;
+    z-index: 2;
+}
+.jap-big-bg {
+    position: absolute;
+    font-size: 25rem;
+    color: var(--white);
+    opacity: 0.4;
+    font-family: var(--font-jap);
+    font-weight: 700;
+    z-index: 1;
+    top: 50%; left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+/* Финал */
+.next-step-section {
+    height: 50vh;
+    display: flex; flex-direction: column;
+    justify-content: center; align-items: center;
+    border-top: 10px solid var(--black);
+}
+.big-link {
+    font-size: 2rem; font-weight: bold; margin-top: 1rem;
+    border-bottom: 3px solid var(--red);
+}
