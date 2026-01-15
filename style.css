@@ -267,3 +267,113 @@ h1 {
     font-size: 2rem; font-weight: bold; margin-top: 1rem;
     border-bottom: 3px solid var(--red);
 }
+/* =========================================
+   MOBILE ADAPTATION (Max-width: 768px)
+   ========================================= */
+@media screen and (max-width: 768px) {
+
+    /* 1. ОБЩИЕ НАСТРОЙКИ */
+    section {
+        padding: 4rem 1.5rem; /* Уменьшаем отступы по бокам */
+    }
+
+    /* Убираем боковые линии и индикатор скролла, чтобы не мешали */
+    .line-left, .line-right, .scroll-indicator {
+        display: none;
+    }
+    
+    .logo {
+        font-size: 0.8rem;
+        padding: 1rem;
+        background: rgba(255,255,255,0.8); /* Фон для читаемости */
+        width: 100%;
+        top: 0; left: 0;
+    }
+
+    /* 2. ТИТУЛЬНЫЙ ЭКРАН (HERO) */
+    h1 {
+        font-size: 14vw; /* Шрифт зависит от ширины экрана */
+    }
+    .indent {
+        margin-left: 2rem; /* Уменьшаем отступ второй строки */
+    }
+    .jap-vertical {
+        left: 0; 
+        top: -3rem;
+        font-size: 1.5rem;
+        writing-mode: horizontal-tb; /* Переворачиваем в горизонталь для мобилок */
+    }
+    .meta-data {
+        font-size: 0.7rem;
+    }
+
+    /* 3. ЭКРАН С ФОТО (ARTIFACT) */
+    .grid-container {
+        grid-template-columns: 1fr; /* Одна колонка вместо двух */
+        gap: 2rem;
+    }
+    .section-title {
+        font-size: 2.5rem;
+    }
+    /* Сначала показываем фото, потом текст (для визуального удара) */
+    .image-wrapper {
+        order: -1; 
+        margin-bottom: 1rem;
+    }
+
+    /* 4. ГЛАЗА (THE GAZE) */
+    .photo-cluster {
+        height: 60vh;
+    }
+    .photo-back {
+        width: 80vw; /* Делаем фото шире для мобилки */
+    }
+    .photo-front {
+        width: 70vw;
+        border: 5px solid var(--white); /* Тоньше рамка */
+        box-shadow: 10px 10px 0px var(--red); /* Меньше тень */
+    }
+    .floating-text {
+        font-size: 30vw; /* Огромный иероглиф на фоне */
+        top: 20%;
+    }
+
+    /* 5. ГОРИЗОНТАЛЬНЫЙ СКРОЛЛ */
+    /* Важно: GSAP сам пересчитает длину, нам нужно только подогнать контент внутри */
+    
+    .panel {
+        padding: 2rem 1rem; /* Меньше внутренние отступы */
+        justify-content: center;
+    }
+
+    /* Панель 1: Текст */
+    .huge-text {
+        font-size: 3rem; /* Уменьшаем гигантский шрифт */
+    }
+    .vertical-line {
+        left: 0.5rem;
+    }
+
+    /* Панель 2: Фото */
+    .img-crop-container {
+        width: 90vw; /* Почти во всю ширину */
+        height: 50vh;
+    }
+    .zoomed-img {
+        transform: scale(1.8); /* Еще сильнее зум на деталях */
+    }
+
+    /* Панель 3: Цитата */
+    .quote {
+        font-size: 2rem;
+        padding: 0 1rem;
+    }
+    .jap-big-bg {
+        font-size: 15rem; /* Уменьшаем фоновый иероглиф */
+    }
+    
+    /* Финальная кнопка */
+    .next-step-section {
+        height: 30vh;
+    }
+}
