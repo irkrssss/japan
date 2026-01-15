@@ -1,0 +1,160 @@
+:root {
+    --black: #111111;
+    --white: #ffffff;
+    --red: #ff3333; /* Яркий японский красный */
+    --gray: #b0b0b0;
+    --font-head: 'Syncopate', sans-serif;
+    --font-body: 'Space Mono', monospace;
+    --font-jap: 'Noto Sans JP', sans-serif;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+    background-color: var(--white);
+    color: var(--black);
+    font-family: var(--font-body);
+    overflow-x: hidden;
+}
+
+/* --- LOADER --- */
+.loader {
+    position: fixed; top: 0; left: 0; width: 100%; height: 100vh;
+    background: var(--black); color: var(--white);
+    z-index: 9999; display: flex; justify-content: center; align-items: center;
+}
+
+/* --- FIXED UI --- */
+.fixed-ui {
+    position: fixed; top: 0; left: 0; width: 100%; height: 100vh;
+    pointer-events: none; z-index: 100; padding: 2rem;
+    display: flex; justify-content: space-between;
+}
+.line-left, .line-right {
+    position: absolute; top: 0; height: 100vh; width: 1px;
+    background: rgba(0,0,0,0.1);
+}
+.line-left { left: 5vw; }
+.line-right { right: 5vw; }
+
+/* --- SECTIONS GENERAL --- */
+section {
+    min-height: 100vh;
+    position: relative;
+    padding: 5vw 10vw;
+}
+
+/* --- HERO SECTION --- */
+.hero-section {
+    display: flex; align-items: center; justify-content: center;
+    height: 100vh;
+}
+.hero-content { position: relative; z-index: 2; mix-blend-mode: exclusion;}
+
+h1 {
+    font-family: var(--font-head);
+    font-size: 8vw;
+    line-height: 0.85;
+    text-transform: uppercase;
+    font-weight: 700;
+    letter-spacing: -2px;
+}
+.indent { margin-left: 10vw; display: block; color: transparent; -webkit-text-stroke: 2px var(--black); }
+
+.jap-vertical {
+    position: absolute; top: -50px; left: -80px;
+    writing-mode: vertical-rl;
+    font-family: var(--font-jap);
+    font-size: 2rem; color: var(--red);
+    font-weight: 700;
+}
+
+.meta-data {
+    margin-top: 2rem;
+    font-size: 0.8rem;
+    border-left: 2px solid var(--red);
+    padding-left: 1rem;
+}
+
+.red-sun {
+    position: absolute; top: 20%; right: 15%;
+    width: 30vw; height: 30vw;
+    background: var(--red);
+    border-radius: 50%;
+    z-index: 1;
+    filter: blur(80px);
+    opacity: 0.2;
+}
+
+/* --- ARTIFACT SECTION --- */
+.artifact-section { display: flex; align-items: center; }
+
+.grid-container {
+    display: grid; grid-template-columns: 1fr 1.5fr; gap: 4rem;
+    width: 100%;
+}
+
+.section-title {
+    font-family: var(--font-head); font-size: 3rem; margin-bottom: 2rem;
+}
+
+.image-wrapper {
+    position: relative;
+    overflow: hidden; /* Маска для появления */
+}
+
+.image-wrapper img {
+    width: 100%; display: block;
+    filter: grayscale(100%) contrast(120%);
+    transform: scale(1.2); /* Для зум-эффекта */
+}
+
+.red-frame {
+    position: absolute; top: 20px; left: 20px; right: 20px; bottom: 20px;
+    border: 1px solid var(--red);
+    pointer-events: none;
+}
+.red-frame::after {
+    content: "+"; position: absolute; top: -10px; left: -10px; 
+    background: var(--white); color: var(--red);
+}
+
+/* --- GAZE SECTION (DARK) --- */
+.gaze-section {
+    background-color: var(--black); color: var(--white);
+    overflow: hidden;
+}
+
+.floating-text {
+    position: absolute; top: 10%; left: 5%;
+    font-family: var(--font-jap); font-size: 15vw;
+    opacity: 0.1; color: var(--red); z-index: 0;
+}
+
+.photo-cluster {
+    position: relative; height: 80vh; width: 100%;
+    display: flex; justify-content: center; align-items: center;
+}
+
+.photo-back {
+    position: absolute; width: 50vw; opacity: 0.4;
+    transform: rotate(-5deg); z-index: 1;
+}
+.photo-front {
+    position: absolute; width: 35vw; 
+    z-index: 2;
+    border: 10px solid var(--white);
+    box-shadow: 20px 20px 0px var(--red);
+}
+.photo-front img, .photo-back img { width: 100%; }
+
+.label-tag {
+    position: absolute; bottom: -30px; right: -30px;
+    background: var(--red); color: var(--white);
+    padding: 5px 10px; font-size: 0.8rem;
+}
+
+.footer-stub {
+    height: 50vh; display: flex; justify-content: center; align-items: center;
+    background: var(--black); color: var(--gray);
+}
