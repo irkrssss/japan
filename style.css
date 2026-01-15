@@ -1,7 +1,7 @@
 :root {
     --black: #111111;
     --white: #ffffff;
-    --red: #ff3333; /* Яркий японский красный */
+    --red: #ff3333; /* Vibrant Red */
     --gray: #b0b0b0;
     --font-head: 'Syncopate', sans-serif;
     --font-body: 'Space Mono', monospace;
@@ -36,6 +36,7 @@ body {
 }
 .line-left { left: 5vw; }
 .line-right { right: 5vw; }
+.logo, .scroll-indicator { font-size: 0.8rem; letter-spacing: 1px; }
 
 /* --- SECTIONS GENERAL --- */
 section {
@@ -95,18 +96,21 @@ h1 {
 }
 
 .section-title {
-    font-family: var(--font-head); font-size: 3rem; margin-bottom: 2rem;
+    font-family: var(--font-head); font-size: 3rem; margin-bottom: 1rem;
+}
+.jap-subtitle {
+    font-family: var(--font-jap); color: var(--gray); margin-bottom: 2rem;
 }
 
 .image-wrapper {
     position: relative;
-    overflow: hidden; /* Маска для появления */
+    overflow: hidden; 
 }
 
 .image-wrapper img {
     width: 100%; display: block;
     filter: grayscale(100%) contrast(120%);
-    transform: scale(1.2); /* Для зум-эффекта */
+    transform: scale(1.2); 
 }
 
 .red-frame {
@@ -154,23 +158,19 @@ h1 {
     padding: 5px 10px; font-size: 0.8rem;
 }
 
-.footer-stub {
-    height: 50vh; display: flex; justify-content: center; align-items: center;
-    background: var(--black); color: var(--gray);
-}
-/* --- HORIZONTAL SECTION --- */
+/* --- HORIZONTAL SCROLL SECTION --- */
 .horizontal-wrapper {
     width: 100%;
     height: 100vh;
-    overflow: hidden; /* Скрываем то, что вылезает за экран */
+    overflow: hidden;
     background-color: var(--white);
     position: relative;
-    padding: 0; /* Убираем стандартные отступы секций */
+    padding: 0; 
 }
 
 .horizontal-container {
-    display: flex; /* Выстраиваем панели в ряд */
-    width: 300vw; /* 3 панели по 100vw шириной */
+    display: flex; 
+    width: 300vw; 
     height: 100%;
 }
 
@@ -185,11 +185,9 @@ h1 {
     border-right: 1px solid var(--black);
 }
 
-/* Стили панели 1 (Текст) */
-.panel-text {
-    background-color: var(--white);
-    color: var(--black);
-}
+/* Panel Styles */
+.panel-text { background-color: var(--white); color: var(--black); }
+
 .huge-text {
     font-family: var(--font-head);
     font-size: 6rem;
@@ -204,7 +202,7 @@ h1 {
     position: absolute; top: 0; left: 2rem; height: 100%; width: 2px; background: var(--red);
 }
 
-/* Стили панели 2 (Картинка) */
+/* Panel Image */
 .panel-img {
     background-color: var(--black);
     align-items: center;
@@ -221,20 +219,18 @@ h1 {
     width: 100%;
     height: 100%;
     object-fit: cover;
-    /* Увеличиваем фото и сдвигаем, чтобы показать эмоции */
     transform: scale(1.5); 
     filter: grayscale(100%) contrast(110%);
 }
 .floating-sticker {
     position: absolute; bottom: 0; right: 0;
     background: var(--red); color: var(--white);
-    padding: 1rem; font-family: var(--font-body);
-    font-weight: bold;
+    padding: 1rem; font-weight: bold;
 }
 
-/* Стили панели 3 (Цитата) */
+/* Panel Quote */
 .panel-quote {
-    background-color: #e0e0e0; /* Светло-серый */
+    background-color: #e0e0e0;
     align-items: center;
     text-align: center;
     overflow: hidden;
@@ -242,7 +238,7 @@ h1 {
 .quote {
     font-family: var(--font-head);
     font-size: 4rem;
-    z-index: 2;
+    z-index: 2; position: relative;
 }
 .jap-big-bg {
     position: absolute;
@@ -256,7 +252,31 @@ h1 {
     transform: translate(-50%, -50%);
 }
 
-/* Финал */
+/* --- TEXT SECTION (CONTEXT) --- */
+.text-section {
+    min-height: 80vh;
+    display: flex; align-items: center; justify-content: center;
+}
+.content-limit { max-width: 1000px; width: 90%; }
+
+.chapter-marker {
+    font-family: var(--font-body);
+    font-size: 0.9rem; margin-bottom: 2rem;
+    border-bottom: 1px solid var(--black);
+    display: inline-block; padding-bottom: 5px;
+}
+.medium-title {
+    font-family: var(--font-head);
+    font-size: 4vw;
+    margin-bottom: 4rem;
+    line-height: 1.2;
+}
+.columns-text {
+    display: grid; grid-template-columns: 1fr 1fr; gap: 4rem;
+    font-size: 1.1rem; line-height: 1.6;
+}
+
+/* --- FOOTER --- */
 .next-step-section {
     height: 50vh;
     display: flex; flex-direction: column;
@@ -267,113 +287,60 @@ h1 {
     font-size: 2rem; font-weight: bold; margin-top: 1rem;
     border-bottom: 3px solid var(--red);
 }
+
+
 /* =========================================
    MOBILE ADAPTATION (Max-width: 768px)
    ========================================= */
 @media screen and (max-width: 768px) {
 
-    /* 1. ОБЩИЕ НАСТРОЙКИ */
-    section {
-        padding: 4rem 1.5rem; /* Уменьшаем отступы по бокам */
-    }
-
-    /* Убираем боковые линии и индикатор скролла, чтобы не мешали */
-    .line-left, .line-right, .scroll-indicator {
-        display: none;
-    }
+    section { padding: 4rem 1.5rem; }
+    .line-left, .line-right, .scroll-indicator { display: none; }
     
     .logo {
         font-size: 0.8rem;
         padding: 1rem;
-        background: rgba(255,255,255,0.8); /* Фон для читаемости */
-        width: 100%;
-        top: 0; left: 0;
+        background: rgba(255,255,255,0.9);
+        width: 100%; top: 0; left: 0;
     }
 
-    /* 2. ТИТУЛЬНЫЙ ЭКРАН (HERO) */
-    h1 {
-        font-size: 14vw; /* Шрифт зависит от ширины экрана */
-    }
-    .indent {
-        margin-left: 2rem; /* Уменьшаем отступ второй строки */
-    }
+    /* Hero */
+    h1 { font-size: 14vw; }
+    .indent { margin-left: 2rem; }
     .jap-vertical {
-        left: 0; 
-        top: -3rem;
+        left: 0; top: -3rem;
         font-size: 1.5rem;
-        writing-mode: horizontal-tb; /* Переворачиваем в горизонталь для мобилок */
+        writing-mode: horizontal-tb;
     }
-    .meta-data {
-        font-size: 0.7rem;
-    }
+    .red-sun { width: 60vw; height: 60vw; }
 
-    /* 3. ЭКРАН С ФОТО (ARTIFACT) */
-    .grid-container {
-        grid-template-columns: 1fr; /* Одна колонка вместо двух */
-        gap: 2rem;
-    }
-    .section-title {
-        font-size: 2.5rem;
-    }
-    /* Сначала показываем фото, потом текст (для визуального удара) */
-    .image-wrapper {
-        order: -1; 
-        margin-bottom: 1rem;
-    }
+    /* Artifact */
+    .grid-container { grid-template-columns: 1fr; gap: 2rem; }
+    .section-title { font-size: 2.5rem; }
+    .image-wrapper { order: -1; margin-bottom: 1rem; }
 
-    /* 4. ГЛАЗА (THE GAZE) */
-    .photo-cluster {
-        height: 60vh;
+    /* Gaze */
+    .photo-cluster { height: 60vh; }
+    .photo-back { width: 80vw; }
+    .photo-front { 
+        width: 70vw; 
+        border: 5px solid var(--white);
+        box-shadow: 10px 10px 0px var(--red);
     }
-    .photo-back {
-        width: 80vw; /* Делаем фото шире для мобилки */
-    }
-    .photo-front {
-        width: 70vw;
-        border: 5px solid var(--white); /* Тоньше рамка */
-        box-shadow: 10px 10px 0px var(--red); /* Меньше тень */
-    }
-    .floating-text {
-        font-size: 30vw; /* Огромный иероглиф на фоне */
-        top: 20%;
-    }
+    .floating-text { font-size: 30vw; top: 20%; }
 
-    /* 5. ГОРИЗОНТАЛЬНЫЙ СКРОЛЛ */
-    /* Важно: GSAP сам пересчитает длину, нам нужно только подогнать контент внутри */
+    /* Horizontal Scroll Items */
+    .panel { padding: 2rem 1rem; justify-content: center; }
+    .huge-text { font-size: 3rem; }
+    .img-crop-container { width: 90vw; height: 50vh; }
+    .zoomed-img { transform: scale(1.8); }
+    .quote { font-size: 2rem; padding: 0 1rem; }
+    .jap-big-bg { font-size: 15rem; }
+
+    /* Context Text */
+    .medium-title { font-size: 2.5rem; }
+    .columns-text { grid-template-columns: 1fr; gap: 2rem; }
     
-    .panel {
-        padding: 2rem 1rem; /* Меньше внутренние отступы */
-        justify-content: center;
-    }
-
-    /* Панель 1: Текст */
-    .huge-text {
-        font-size: 3rem; /* Уменьшаем гигантский шрифт */
-    }
-    .vertical-line {
-        left: 0.5rem;
-    }
-
-    /* Панель 2: Фото */
-    .img-crop-container {
-        width: 90vw; /* Почти во всю ширину */
-        height: 50vh;
-    }
-    .zoomed-img {
-        transform: scale(1.8); /* Еще сильнее зум на деталях */
-    }
-
-    /* Панель 3: Цитата */
-    .quote {
-        font-size: 2rem;
-        padding: 0 1rem;
-    }
-    .jap-big-bg {
-        font-size: 15rem; /* Уменьшаем фоновый иероглиф */
-    }
-    
-    /* Финальная кнопка */
-    .next-step-section {
-        height: 30vh;
-    }
+    /* Footer */
+    .next-step-section { height: 30vh; }
 }
