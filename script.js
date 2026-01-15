@@ -75,3 +75,20 @@ gsap.to(".jap-big", {
         scrub: 1
     }
 });
+// 5. ГОРИЗОНТАЛЬНЫЙ СКРОЛЛ
+// Мы берем контейнер .horizontal-container и двигаем его влево
+// пока пользователь скроллит вниз.
+
+let sectionsHor = gsap.utils.toArray(".panel");
+
+gsap.to(sectionsHor, {
+  xPercent: -100 * (sectionsHor.length - 1), // Сдвигаем на (количество панелей - 1) * 100%
+  ease: "none",
+  scrollTrigger: {
+    trigger: ".horizontal-wrapper",
+    pin: true, // "Прикалываем" блок к экрану
+    scrub: 1,  // Плавная привязка к скроллу
+    snap: 1 / (sectionsHor.length - 1), // Доводка до целого слайда (опционально)
+    end: () => "+=" + document.querySelector(".horizontal-wrapper").offsetWidth // Длина скролла равна ширине блока
+  }
+});
